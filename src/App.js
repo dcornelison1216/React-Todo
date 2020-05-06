@@ -61,13 +61,11 @@ class App extends React.Component {
   };
 
   clearAll = () => {
-    this.setState({
-      todolist: this.state.todolist.map(todo => {
-        if (todo.completed === false) {
-          return !todo.completed
-        } else return todo.completed
-      })
-    });
+    if(this.state.todolist.length > 0) {
+      this.setState({
+        todolist: []
+      });
+    }
   };
 
   handleChanges = e => {

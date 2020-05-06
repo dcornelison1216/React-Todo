@@ -24,7 +24,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todolist
+      todolist,
+      newItemText: ""
     };
   }
 
@@ -46,23 +47,57 @@ class App extends React.Component {
     this.setState({
       todolist: [
         ...this.state.todolist,
-        { task: itemName, completed: false, id: Date.now() }
+        { task: itemName, id: Date.now(), completed: false }
       ]
     });
+    console.log(this.state.todolist)
   };
 
   clearCompleted = () => {
     this.setState({
       todolist: this.state.todolist.filter(todo => {
         return !todo.completed
+      }),
+    });
+  };
+
+  clearAll = () => {
+    this.setState({
+      todolist: this.state.todolist.map(todo => {
+        if (todo.completed === false) {
+          return !todo.completed
+        } else return todo.completed
       })
     });
+  };
+
+  handleChanges = e => {
+    e.preventDefault();
+    this.setState({
+      newItemText: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    if(this.state.newItemText) {
+      this.addNewItem(this.state.newItemText);
+    };
+    this.setState({
+      newItemText: ""
+    })
   };
 
   render() {
     return (
       <div>
-        <TodoForm addNewItem={this.addNewItem} />
+        <TodoForm
+          addNewItem={this.addNewItem}
+          clearAll={this.clearAll}
+          handleChanges={this.handleChanges}
+          handleSubmit={this.handleSubmit}
+          newItemText={this.newItemText}
+        />
         <TodoList
           toggleTodoCompleted={this.toggleTodoCompleted}
           todolist={this.state.todolist}

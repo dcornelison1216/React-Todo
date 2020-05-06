@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const ButtonsDiv = styled.div`
-margin: 1rem 0 0 1rem;
+margin: 1rem 1rem 0 1rem;
 `;
 
 export const Form = styled.form`
 display: flex;
 flex-direction: row;
+justify-content: space-between;
 `;
 
 export const Button = styled.button`
@@ -50,4 +51,14 @@ export const Item = styled.p`
 font-size: 1.5rem;
 margin-left: .5rem;
 text-transform: capitalize;
+`;
+
+export const Headline = styled.h2`
+color: yellow;
+margin: 1rem 0 0 1rem;
+`;
+
+export const AddClearDiv = styled.div`
+display: flex;
+flex-direction: row;
 `;

@@ -49,4 +49,5 @@ min-height: 2rem;
 export const Item = styled.p`
 font-size: 1.5rem;
 margin-left: .5rem;
+text-transform: capitalize;
 `;

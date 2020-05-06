@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ButtonsDiv = styled.div`
-margin: 1rem 1rem 0 1rem;
+margin: 1rem 2rem 0 1rem;
 `;
 
 export const Form = styled.form`

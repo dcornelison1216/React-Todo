@@ -1,2 +1,20 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+import React from 'react';
+import Todo from './Todo';
+import { ClearButton, TodoListDiv } from './AppStyles';
+
+class TodoList extends React.Component {
+  render() {
+    return (
+      <TodoListDiv>
+        {this.props.todolist.map(todo => (
+          <Todo toggleTodoCompleted={this.props.toggleTodoCompleted} key={todo.id} todo={todo} />
+        ))}
+        <ClearButton className="clear-btn" onClick={this.props.clearCompleted}>
+          Clear Completed
+        </ClearButton>
+      </TodoListDiv>
+    );
+  };
+};
+
+export default TodoList;

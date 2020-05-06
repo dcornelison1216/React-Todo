@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import { AppContainer } from './components/AppStyles';
 
 const todolist = [
   {
@@ -87,7 +88,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <AppContainer>
         <TodoForm
           addNewItem={this.addNewItem}
           clearAll={this.clearAll}
@@ -100,7 +101,7 @@ class App extends React.Component {
           todolist={this.state.todolist}
           clearCompleted={this.clearCompleted}
         />
-      </div>
+      </AppContainer>
     );
   }
 }

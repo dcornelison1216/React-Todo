@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './Todo';
+import { ClearButton } from './AppStyles';
 
 class TodoList extends React.Component {
   render() {
@@ -8,9 +9,9 @@ class TodoList extends React.Component {
         {this.props.todolist.map(todo => (
           <Todo toggleTodoCompleted={this.props.toggleTodoCompleted} key={todo.id} todo={todo} />
         ))}
-        <button className="clear-btn" onClick={this.props.clearCompleted}>
+        <ClearButton className="clear-btn" onClick={this.props.clearCompleted}>
           Clear Completed
-        </button>
+        </ClearButton>
       </div>
     );
   };

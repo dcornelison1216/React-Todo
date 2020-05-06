@@ -1,4 +1,5 @@
 import React from 'react';
+import { ItemDiv, Item } from './AppStyles';
 
 const Todo = props => {
   const handleClick = e => {
@@ -6,9 +7,9 @@ const Todo = props => {
   };
 
   return (
-    <div onClick={handleClick} className={`todo${props.todo.completed ? " completed" : ""}`}>
-      <p>{props.todo.task}</p>
-    </div>
+    <ItemDiv onClick={handleClick} className={`todo${props.todo.completed ? " completed" : ""}`}>
+      <Item>{props.todo.task}</Item>
+    </ItemDiv>
   );
 };
 

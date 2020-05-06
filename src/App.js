@@ -50,7 +50,6 @@ class App extends React.Component {
         { task: itemName, id: Date.now(), completed: false }
       ]
     });
-    console.log(this.state.todolist)
   };
 
   clearCompleted = () => {
@@ -81,11 +80,11 @@ class App extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     if(this.state.newItemText) {
-      this.addNewItem(this.state.newItemText);
+      this.addNewItem(this.state.newItemText)
+      this.setState({
+        newItemText: ""
+      })
     };
-    this.setState({
-      newItemText: ""
-    })
   };
 
   render() {
@@ -96,7 +95,7 @@ class App extends React.Component {
           clearAll={this.clearAll}
           handleChanges={this.handleChanges}
           handleSubmit={this.handleSubmit}
-          newItemText={this.newItemText}
+          newItemText={this.state.newItemText}
         />
         <TodoList
           toggleTodoCompleted={this.toggleTodoCompleted}
